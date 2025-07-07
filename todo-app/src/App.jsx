@@ -28,11 +28,11 @@ export default class App extends Component{
     float: 'right',
   }
 
-  getStyle = () => {
+  getStyle = (completed) => {
     return{
       padding: '10px',
       borderBottom: '1px #ccc dotted',
-      textDecoration: 'none',
+      textDecoration: completed ? 'line-through': 'none',
 
     }
   }
@@ -64,6 +64,17 @@ export default class App extends Component{
     })
   }
 
+  handleCompleteChange = (id) => {
+    let newTodoData = this.state.todoData.map((data) => {
+      if (data.id === id){
+        data.completed = !data.completed;
+      }
+      return data;
+    })
+
+    this.setState({todoData: newTodoData});
+  }
+
   render () {
     return (
       <div className='container'>
@@ -74,8 +85,10 @@ export default class App extends Component{
 
           {
             this.state.todoData.map((data) => (
-              <div key={data.id} style={this.getStyle()}>
-                <input type='checkbox' defaultChecked={false}/>
+              <div key={data.id} style={this.getStyle(data.completed)}>
+                <input type='checkbox'
+                onChange={()=> this.handleCompleteChange(data.id)}
+                checked={data.completed}/>
                 {data.title}
                 <button style={this.btnSyle} onClick={() => this.handleClick(data.id)}>X</button>
               </div>
