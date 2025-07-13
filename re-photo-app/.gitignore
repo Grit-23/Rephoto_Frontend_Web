@@ -1,0 +1,13 @@
+# Node
+node_modules/
+re-photo-app/node_modules/
+
+# Build
+dist/
+build/
+
+# Env
+.env
+
+# Logs
+*.log
