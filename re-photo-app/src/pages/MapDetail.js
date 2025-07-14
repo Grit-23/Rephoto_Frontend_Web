@@ -1,14 +1,24 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 
-function MapDetail() {
-  const { id } = useParams();
+export default function MapSVG({ locations, selected, onSelect }) {
   return (
-    <div>
-      <h2>Map Detail Page</h2>
-      <p>Detail for location ID: {id}</p>
-    </div>
+    <svg viewBox="0 0 300 200" className="map-svg">
+      <image href="https://upload.wikimedia.org/wikipedia/commons/8/80/Seoul_location_map.svg"
+             x="0" y="0" width="300" height="200" />
+
+      {locations.map(loc => (
+        <circle
+          key={loc.id}
+          cx={loc.cx}
+          cy={loc.cy}
+          r={selected?.id === loc.id ? 12 : 8}
+          fill={selected?.id === loc.id ? 'red' : 'blue'}
+          stroke="black"
+          strokeWidth="1"
+          onClick={() => onSelect(loc)}
+          style={{ cursor: 'pointer' }}
+        />
+      ))}
+    </svg>
   );
 }
-
-export default MapDetail;

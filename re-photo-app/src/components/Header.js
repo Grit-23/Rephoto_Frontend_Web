@@ -4,7 +4,7 @@ function Header({ onMenuClick }) {
   return (
     <header>
       <button onClick={onMenuClick}>☰</button>
-      <h1>Rephoto App</h1>
+      <h1>사진을 다시 보다, 리포토</h1>
     </header>
   );
 }

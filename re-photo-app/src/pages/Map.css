@@ -1,0 +1,62 @@
+.map-page {
+  display: flex;
+  height: calc(100vh - 60px);
+  background: #fff;
+}
+
+.info-panel {
+  flex: 1;
+  padding: 20px;
+  background: #fff;
+  overflow-y: auto;
+  border-right: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.info-panel:not(.open) {
+  opacity: 0.3;
+}
+
+.info-panel h2 {
+  margin-top: 0;
+}
+
+.images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.images img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.empty-message {
+  color: #aaa;
+}
+
+.more-button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.map-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+  overflow: hidden;
+}
+
+.map-svg {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+}
