@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router } from "react-router-dom";
 
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
@@ -11,6 +12,7 @@ import TagSearch from './pages/TagSearch';
 import Map from './pages/Map';
 import MapDetail from './pages/MapDetail';
 import UserInfo from './pages/UserInfo';
+import SensitivePage from "./pages/SensitivePage";
 
 import './App.css';
 
@@ -33,6 +35,7 @@ function App() {
           <Route path="/map/:id" element={<MapDetail />} />
           <Route path="/user" element={<UserInfo />} />
           <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/sensitive" element={<SensitivePage />} />
         </Routes>
       </div>
 
