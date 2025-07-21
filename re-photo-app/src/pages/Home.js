@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import "./Home.css";
+import Sidebar from "../components/Sidebar";
+import UserInfo from "./UserInfo";
 
-function Home() {
+function Home({ onOpenUserSidebar }) {
   const sensitiveCount = 54;
   const photoUrls = Array.from({ length: 30 }, (_, i) => `/images/photo1.png`);
-
-  const [modalImage, setModalImage] = useState(null); // 클릭한 이미지 src 저장
-
+  const [modalImage, setModalImage] = useState(null);
+  
   return (
     <div className="home-container">
+
       <h1 className="album-title">앨범</h1>
 
       {/* 민감한 사진 카드 */}
@@ -42,7 +44,7 @@ function Home() {
           </div>
         </div>
       )}
-    </div>
+      </div>
   );
 }
 

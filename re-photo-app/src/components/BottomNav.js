@@ -8,7 +8,6 @@ function BottonNav() {
       <Link to="/">홈</Link>
       <Link to="/tag-search">검색</Link>
       <Link to="/map">지도</Link>
-      <Link to="/user">사용자</Link>
     </nav>
   );
 }

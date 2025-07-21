@@ -1,12 +1,16 @@
-import React from 'react';
+// Sidebar.js
+import React from "react";
+import "./Sidebar.css";
 
-function Sidebar({ open, onClose }) {
+function Sidebar({ open, onClose, children }) {
   if (!open) return null;
 
+   console.log("Sidebar 열림. children:", children);
+
   return (
-    <aside>
-      <button onClick={onClose}>Close</button>
-      <p>Sidebar Content Here</p>
+    <aside className="sidebar">
+      <button className="close-btn" onClick={onClose}>×</button>
+      {children}
     </aside>
   );
 }

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { BrowserRouter as Router } from "react-router-dom";
 
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
@@ -25,7 +24,10 @@ function App() {
   return (
     <div className="app">
       <Header onMenuClick={() => setSidebarOpen(true)} />
-      <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)}>
+        <UserInfo />
+      </Sidebar>
+
 
       <div className="content">
         <Routes>
@@ -33,7 +35,6 @@ function App() {
           <Route path="/tag-search" element={<TagSearch />} />
           <Route path="/map" element={<Map />} />
           <Route path="/map/:id" element={<MapDetail />} />
-          <Route path="/user" element={<UserInfo />} />
           <Route path="*" element={<Navigate to="/" />} />
           <Route path="/sensitive" element={<SensitivePage />} />
         </Routes>
